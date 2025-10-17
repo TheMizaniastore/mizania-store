@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mizania Store | Unleash Your Sound</title>
+    <!-- Load Tailwind CSS CDN for modern, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        /* Custom configuration for Tailwind colors and font */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#10172A', /* Dark Blue Background */
+                        'primary-neon': '#3B82F6', /* Blue for primary accents */
+                        'secondary-lime': '#10B981', /* Green for secondary accents */
+                        'text-light': '#F8FAFC',
+                        'card-dark': '#1F2937',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon': '0 0 20px rgba(59, 130, 246, 0.6)',
+                    }
+                }
+            }
+        }
+
+        /* Base styles for dark theme */
+        body {
+            font-family: 'Inter', 'sans-serif';
+            background-color: '#10172A';
+            color: '#F8FAFC'; 
+        }
+
+        /* Styling for the product image in the Hero section */
+        .product-visual {
+            min-height: 350px;
+             <img src="C:\Users\user\Desktop.TMS.jpg" alt="TMS logo image"> 
+            background-image: url('https://images.unsplash.com/photo-1546435384-7a195e7d5669?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+            background-size: cover;
+            background-position: center;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease-in-out;
+            border: 3px solid #3B82F6;
+        }
+
+        .product-visual:hover {
+            transform: scale(1.02);
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Navigation -->
+    <header class="bg-card-dark shadow-xl sticky top-0 z-50 border-b border-green-700">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-2xl font-extrabold text-primary-neon tracking-wider">
+                The mizania Store
+            </div>
+            <div class="hidden md:flex space-x-8 text-gray-300 font-medium">
+                <a href="#features" class="hover:text-secondary-lime transition duration-300">Features</a>
+                <a href="#specs" class="hover:text-secondary-lime transition duration-300">Tech Specs</a>
+                <a href="#cta" class="hover:text-secondary-lime transition duration-300">Get Yours</a>
+            </div>
+            <button onclick="document.getElementById('cta').scrollIntoView({ behavior: 'smooth' });"
+                class="bg-secondary-lime text-dark-bg py-2 px-5 rounded-full font-bold shadow-md hover:bg-opacity-90 transition duration-300 transform hover:scale-105 text-sm md:text-base">
+                Shop Now
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24 bg-dark-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+            <!-- Content Column -->
+            <div class="order-2 md:order-1 text-center md:text-left">
+                <h1 class="text-4xl sm:text-6xl font-extrabold leading-snug text-text-light mb-4">
+                    The Freedom of Sound, <span class="block text-primary-neon">Untangled.</span>
+                </h1>
+                <p class="text-xl text-gray-400 mb-8 max-w-lg mx-auto md:mx-0">
+                    Experience crystal-clear audio and all-day comfort with The Mizania Store's flexible neckband design. Perfect for your active life.
+                </p>
+                <button id="cta-hero" onclick="document.getElementById('cta').scrollIntoView({ behavior: 'smooth' });"
+                    class="bg-primary-neon text-text-light py-3 px-8 rounded-xl text-lg font-bold shadow-neon transition duration-300 transform hover:shadow-2xl hover:bg-blue-600">
+                    Discover The Mizania Store
+                </button>
+            </div>
+
+            <!-- Visual Column -->
+            <div class="order-1 md:order-2 flex justify-center p-6">
+                <div id="product-visual" class="product-visual w-full max-w-md">
+                    <!-- Product Image from the CSS background-image -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Feature Section -->
+    <section id="features" class="py-20 md:py-24 bg-card-dark border-y border-blue-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold text-secondary-lime mb-4">Smart Modes, Better Audio</h2>
+            <p class="text-lg text-gray-400 mb-12">See how The Mizania Store's neckband adapts to your needs with the flip of a switch.</p>
+
+            <div class="max-w-xl mx-auto p-6 rounded-2xl bg-dark-bg shadow-xl border border-primary-neon/50">
+                <div class="flex justify-center items-center space-x-4 mb-6">
+                    <span id="mode-status" class="text-2xl font-semibold text-primary-neon transition duration-500">
+                        Current Mode: Studio Chill
+                    </span>
+                </div>
+
+                <!-- Toggle Switch UI -->
+                <label for="mode-toggle" class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" value="" id="mode-toggle" class="sr-only peer" onclick="toggleAudioMode()">
+                    <div class="w-14 h-8 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-neon/50 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-secondary-lime"></div>
+                    <span class="ml-3 text-sm font-medium text-gray-300">Toggle Mode</span>
+                </label>
+                <p id="mode-description" class="mt-4 text-green-400 text-sm">
+                    Perfect for relaxed listening with balanced bass and crisp highs.
+                </p>
+            </div>
+
+            <!-- Core Feature Grid -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4 rounded-xl bg-card-dark border border-blue-700">
+                    <p class="text-3xl font-extrabold text-primary-neon">48H</p>
+                    <p class="text-gray-400 text-sm mt-1">Playtime</p>
+                </div>
+                <div class="p-4 rounded-xl bg-card-dark border border-green-700">
+                    <p class="text-3xl font-extrabold text-primary-neon">IPX5</p>
+                    <p class="text-gray-400 text-sm mt-1">Waterproof</p>
+                </div>
+                <div class="p-4 rounded-xl bg-card-dark border border-green-700">
+                    <p class="text-3xl font-extrabold text-primary-neon">BT 5.3</p>
+                    <p class="text-gray-400 text-sm mt-1">Low Latency</p>
+                </div>
+                <div class="p-4 rounded-xl bg-card-dark border border-green-700">
+                    <p class="text-3xl font-extrabold text-primary-neon">10MM</p>
+                    <p class="text-gray-400 text-sm mt-1">Drivers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specs & Comfort -->
+    <section id="specs" class="py-20 bg-dark-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-text-light mb-12">Engineered for All-Day Wear</h2>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Tech Text -->
+                <div class="text-black-300">
+                    <h3 class="text-2xl font-semibold text-primary-neon mb-4">Flex-Fit Technology</h3>
+                    <p class="mb-6">The Mizania Store neckband is crafted from ultra-lightweight, memory-flex silicone. It naturally contours to your neck, making it feel almost invisible, even after hours of use during school, travel, or workouts.</p>
+
+                    <ul class="list-disc list-inside space-y-3 text-lg">
+                        <li>Magnetic earbuds keep the cord tangle-free when not in use.</li>
+                        <li>Built-in vibration for call alerts so you never miss a message.</li>
+                        <li>High-definition microphone for clear voice calls.</li>
+                    </ul>
+                </div>
+
+                <!-- Placeholder for Tech Diagram -->
+                <div class="flex justify-center p-4">
+                    <div class="w-full max-w-sm h-64 bg-card-dark rounded-xl shadow-neon flex items-center justify-center border-2 border-primary-neon/70">
+                        <p class="text-primary-neon font-mono text-xl">
+                            [Tech Specs Diagram Placeholder]
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Pricing Section -->
+    <section id="cta" class="py-20 md:py-24 bg-secondary-lime">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-dark-bg">
+            <h2 class="text-4xl sm:text-5xl font-extrabold mb-4">Your Next Level of Audio Starts Now.</h2>
+            <p class="text-xl mb-8 font-medium">Limited time offer: Free fast shipping on all orders!</p>
+
+            <div class="bg-text-light text-dark-bg p-8 rounded-3xl inline-block shadow-3xl">
+                <p class="text-4xl font-black mb-2">
+                    INR299.9
+                    <span class="text-lg line-through text-gray-500 ml-2">INR599.9</span>
+                </p>
+                <p class="text-lg mb-6 font-semibold">Ready to upgrade your listening experience?</p>
+                <button onclick="handlePurchase()"
+                    class="bg-primary-neon text-text-light py-4 px-12 rounded-xl text-xl font-bold shadow-xl shadow-primary-neon/40 hover:shadow-primary-neon/60 transition duration-300 transform hover:scale-105">
+                    Click Here to Buy!
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+            <p>&copy; 2025 The Mizania Store Audio. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        /**
+         * Toggles between "Studio Chill" and "Gym Power" audio modes (Interactive Feature).
+         */
+        function toggleAudioMode() {
+            const toggle = document.getElementById('mode-toggle');
+            const status = document.getElementById('mode-status');
+            const description = document.getElementById('mode-description');
+            const visual = document.getElementById('product-visual');
+
+            if (toggle.checked) {
+                // Gym Power Mode is ON (Checked State)
+                status.textContent = 'Current Mode: Gym Power';
+                status.classList.remove('text-primary-neon');
+                status.classList.add('text-secondary-lime');
+                description.textContent = 'Enhanced bass and volume boost to power through your workout! The low-latency mode is active.';
+                visual.style.borderColor = '#10B981'; // Lime border
+            } else {
+                // Studio Chill Mode is ON (Unchecked State)
+                status.textContent = 'Current Mode: Studio Chill';
+                status.classList.remove('text-secondary-lime');
+                status.classList.add('text-primary-neon');
+                description.textContent = 'Perfect for relaxed listening with balanced bass and crisp highs.';
+                visual.style.borderColor = '#3B82F6'; // Blue border
+            }
+        }
+
+        // ==========================================================
+        // --- CODING FOR 'CLICK HERE TO BUY!' BUTTON (handlePurchase) ---
+        // ==========================================================
+
+        /**
+         * Function for the 'Buy Now' action, displaying the Cash on Delivery (COD) confirmation modal.
+         */
+        function handlePurchase() {
+            console.log("Cash on Delivery order initiated. Showing confirmation.");
+
+            // 1. Creates a full-screen background overlay (the dark background)
+            const feedbackContainer = document.createElement('div');
+            feedbackContainer.className = 'fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50';
+
+            // 2. Custom modal content confirming the COD order
+            feedbackContainer.innerHTML = `
+                <div class="bg-white p-8 rounded-xl shadow-2xl text-dark-bg max-w-sm text-center transform scale-100 transition duration-300">
+                    <h3 class="text-3xl font-bold mb-3 text-secondary-lime">Order Confirmed!</h3>
+                    
+                    <p class="mb-5 text-black-700 font-semibold">
+                        Your **The Mizania Store** order has been successfully placed for **Cash on Delivery (COD)**.
+                    </p>
+                    
+                    <div class="text-xl font-extrabold mb-6 p-3 bg-gray-100 rounded-lg border border-gray-300">
+                        Pay INR299.9 upon Delivery!
+                    </div>
+
+                    <p class="text-sm text-gray-500 mb-6">
+                        No payment is required at this time. Your order will be shipped soon.
+                    </p>
+                    
+                    <button onclick="document.body.removeChild(this.parentNode.parentNode)" class="bg-primary-neon text-text-light py-3 px-8 rounded-lg font-semibold hover:bg-blue-600 transition transform hover:scale-105">
+                        Awesome!
+                    </button>
+                </div>
+            `;
+            // 3. Adds the modal to the webpage
+            document.body.appendChild(feedbackContainer);
+        }
+
+        // Add scroll behavior for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Ensure smooth scrolling
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+																														
